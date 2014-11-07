@@ -12,23 +12,29 @@
             return num;
         }
         function start() {
-            if (q == 1) { return }
-            c = 0;
-            ad = 0;
-            da = 0;
-            setTimeout("spel()", 1000 + 1000 * rnd());
-            document.ful.text8.src = "redCirc.png";
+            if ( nyFunktion == 0) {
+                if (q == 1) { return }
+                c = 0;
+                ad = 0;
+                da = 0;
+                setTimeout("spel()", 1000 + 1000 * rnd());
+                document.ful.text8.src = "redCirc.png";
+            }
 
+            if (nyFunktion == 1) {
+                if (da == 1) { return }
+                if (ad == 1) { return }
+                if (q == 1) { return }
+                if (c == 0) { fusk() }
+                if (c == 0) { return }
+                if (c != 0) { document.ful.text8.src = "greenCircCheck.png" }
+                da = 1
+                rak();
+                nyFunktion = 0;
+            }
         }
         function stop() {
-            if (da == 1) { return }
-            if (ad == 1) { return }
-            if (q == 1) { return }
-            if (c == 0) { fusk() }
-            if (c == 0) { return }
-            if (c != 0) { document.ful.text8.src = "greenCircCheck.png" }
-            da = 1
-            rak();
+            
         }
         function rak() {
             slutTime = new Date();
@@ -43,17 +49,20 @@
         }
         function spel() {
             if (ad == 1) return
+            nyFunktion = 1;
             c = 1;
             startTime = new Date();
             stid = startTime.getTime();
             document.ful.text8.src = "greenCirc.png";
         }
         function fusk() {
+            nyFunktion = 0;
             document.ful.text2.value = "Too early! Start again."
             ad = 1
             stid = 0;
             rak();
         }
+        nyFunktion = 0;
         q = 0;
         ad = 0;
     </script>
@@ -66,7 +75,7 @@
                     <input size="30" name="text1" value="Reaction time 1:"><br>
                     <input size="30" name="text2" /><br />
                         <img src="redCirc.png" name="text8" height="400" width="400" /><br>
-                        <input type="button" value="Start" onclick="start()">
+                        <input type="button" value="Start/stop" onclick="start()">
                         <input type="button" value="STOP" onclick="stop()">
                 </form>
             </center>
