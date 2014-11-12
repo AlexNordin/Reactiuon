@@ -1,0 +1,11 @@
+﻿body {
+    background-color: #f5f1e9;
+}
+
+.displayArea {
+    color: #000;
+    font-size: 40px;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    background-color: #f5f1e9;
+}

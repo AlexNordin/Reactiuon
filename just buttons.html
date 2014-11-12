@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Reaction Game</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
     <script language="JavaScript">
         //variabler
         nyFunktion = 0;
@@ -19,13 +21,14 @@
         //Den här functionen start gör både start och stopp momenten
         function start() {
             //första delen startar allt
-            if ( nyFunktion == 0) {
+            if ( nyFunktion == 0 ) {
                 if (q == 1) { return }
                 c = 0;
                 ad = 0;
                 da = 0;
                 setTimeout("spel()", 1000 + 1000 * rnd());
                 document.ful.text8.src = "redCirc.png";
+                nyFunktion = 2;
             }
             //andra delen stoppar allt
             if (nyFunktion == 1) {
@@ -52,7 +55,7 @@
             if (ad == 1) tidpo = 2;
             as = ""; if (tidpo < 1) as = "0"
             if (ad == 0) {
-                document.ful.text1.value = "Reaction time 1: " + as + tidpo + " seconds"
+                document.ful.text1.value = "Reaction time: " + as + tidpo + " seconds"
                 document.ful.text8.value = "Push Start";
             }
         }
@@ -82,8 +85,8 @@
 
             <center>
                 <form name="ful">
-                    <input size="30" name="text1" value="Reaction time:"><br>
-                    <input size="30" name="text2" /><br />
+                    <input class="displayArea" size="30" name="text1" value="Reaction time:"><br>
+                    <input class="displayArea" size=" 30" name="text2" /><br />
                         <img src="redCirc.png" name="text8" height="400" width="400" onclick="start()" /><br>
                         <input type="button" value="Start/stop" onclick="start()">
                 </form>
