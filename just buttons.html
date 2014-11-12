@@ -11,7 +11,10 @@
         nyFunktion = 0;
         q = 0;
         ad = 0;
-
+        fuskKoll = 0;
+        setInterval(function () {
+            console.log(fuskKoll, nyFunktion);
+        }, 500)
         //ingen aning
         function rnd() {
             r1 = new Date();
@@ -28,7 +31,9 @@
                 da = 0;
                 setTimeout("spel()", 1000 + 1000 * rnd());
                 document.ful.text8.src = "redCirc.png";
+                document.ful.text2.value = ""
                 nyFunktion = 2;
+                fuskKoll = 0;
             }
             //andra delen stoppar allt
             if (nyFunktion == 1) {
@@ -37,14 +42,17 @@
                 if (q == 1) { return }
                 if (c == 0) { fusk() }
                 if (c == 0) { return }
-                if (c != 0) { document.ful.text8.src = "greenCircCheck.png" }
+                if (fuskKoll != 2) { document.ful.text8.src = "greenCircCheck.png"; nyFunktion = 0; }
                 da = 1
                 rak();
-                nyFunktion = 0;
+                
+                fuskKoll = -1;
             }
         }
-        function stop() {
-            
+        function kollaFusk() {
+            fuskKoll = fuskKoll + 1;
+            if (fuskKoll == 2) { fusk() }
+            if (fuskKoll == 2) { return }
         }
 
         //vet inte vad denna gör 
@@ -74,9 +82,11 @@
         function fusk() {
             nyFunktion = 0;
             document.ful.text2.value = "Too early! Start again."
+            document.ful.text8.src = "redCircFusk.png";
             ad = 1
             stid = 0;
             rak();
+            fuskKoll = 0;
         }
     </script>
 </head>
@@ -87,7 +97,7 @@
                 <form name="ful">
                     <input class="displayArea" size="30" name="text1" value="Reaction time:"><br>
                     <input class="displayArea" size=" 30" name="text2" /><br />
-                    <img src="redCircClick.png" name="text8" height="400" width="400" onclick="start()" /><br>
+                    <img src="redCircClick.png" name="text8" height="400" width="400" onclick="start(), kollaFusk()" /><br>
                         <input type="button" value="Start/stop" onclick="start()">
                 </form>
             </center>
