@@ -5,13 +5,20 @@
     <meta charset="utf-8" />
     <title>Reaction Game</title>
     <script language="JavaScript">
-        console.log("");
+        //variabler
+        nyFunktion = 0;
+        q = 0;
+        ad = 0;
+
+        //ingen aning
         function rnd() {
             r1 = new Date();
             num = Math.round(Math.abs(Math.sin(r1.getTime()) * 10000000)) % 5;
             return num;
         }
+        //Den här functionen start gör både start och stopp momenten
         function start() {
+            //första delen startar allt
             if ( nyFunktion == 0) {
                 if (q == 1) { return }
                 c = 0;
@@ -20,7 +27,7 @@
                 setTimeout("spel()", 1000 + 1000 * rnd());
                 document.ful.text8.src = "redCirc.png";
             }
-
+            //andra delen stoppar allt
             if (nyFunktion == 1) {
                 if (da == 1) { return }
                 if (ad == 1) { return }
@@ -36,6 +43,8 @@
         function stop() {
             
         }
+
+        //vet inte vad denna gör 
         function rak() {
             slutTime = new Date();
             sltid = slutTime.getTime();
@@ -47,6 +56,8 @@
                 document.ful.text8.value = "Push Start";
             }
         }
+
+        //ingen aning här heller
         function spel() {
             if (ad == 1) return
             nyFunktion = 1;
@@ -55,6 +66,8 @@
             stid = startTime.getTime();
             document.ful.text8.src = "greenCirc.png";
         }
+
+        //fusk funktionen
         function fusk() {
             nyFunktion = 0;
             document.ful.text2.value = "Too early! Start again."
@@ -62,9 +75,6 @@
             stid = 0;
             rak();
         }
-        nyFunktion = 0;
-        q = 0;
-        ad = 0;
     </script>
 </head>
 <body>
@@ -72,11 +82,10 @@
 
             <center>
                 <form name="ful">
-                    <input size="30" name="text1" value="Reaction time 1:"><br>
+                    <input size="30" name="text1" value="Reaction time:"><br>
                     <input size="30" name="text2" /><br />
-                        <img src="redCirc.png" name="text8" height="400" width="400" /><br>
+                        <img src="redCirc.png" name="text8" height="400" width="400" onclick="start()" /><br>
                         <input type="button" value="Start/stop" onclick="start()">
-                        <input type="button" value="STOP" onclick="stop()">
                 </form>
             </center>
 
