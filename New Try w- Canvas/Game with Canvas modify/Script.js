@@ -1,7 +1,6 @@
 // JavaScript source code
 
 // Shim
-////////
 	if(!Date.now)
 Date.now = function() { return (new Date()).getTime(); }
 
@@ -29,10 +28,7 @@ cancelAnimationFrame = window.cancelAnimationFrame ||
 var drawingEnabled = true;
 var notInitialized = true;
 
-
-
 // Utility functions
-////////////////////
 
 function max(array){
     var temp = array[0];
@@ -52,83 +48,10 @@ function min(array){
     return temp;
 }
 
-
-
-// En statisk class kallad MeterBufferCanvas
-var MeterBufferCanvas = new Object();
-
-MeterBufferCanvas.canvas = document.createElement("canvas");
-////MeterBufferCanvas.canvas.setAttribute("width", 720);
-////MeterBufferCanvas.canvas.setAttribute("height", 20);
-
-MeterBufferCanvas.canvas.setAttribute("width", 720);
-MeterBufferCanvas.canvas.setAttribute("height", 20);
-
-if(MeterBufferCanvas.canvas && MeterBufferCanvas.canvas.getContext)
-    MeterBufferCanvas.canvasContext = MeterBufferCanvas.canvas.getContext("2d");
-else
-    drawingEnabled = false;
-	
-if(drawingEnabled){
-    MeterBufferCanvas.canvasContext.fillStyle = "rgb(0, 255, 255)";
-    MeterBufferCanvas.canvasContext.fillRect(0,0,720, 20);
-
-    MeterBufferCanvas.canvasContext.lineWidth = 1;
-
-    MeterBufferCanvas.canvasContext.translate(0, 0.5);
-
-    MeterBufferCanvas.canvasContext.beginPath();
-    MeterBufferCanvas.canvasContext.strokeStyle = "rgb(192, 255, 255)";
-    MeterBufferCanvas.canvasContext.moveTo(0,0);
-    MeterBufferCanvas.canvasContext.lineTo(720,0);
-    MeterBufferCanvas.canvasContext.stroke();
-
-    MeterBufferCanvas.canvasContext.beginPath();
-    MeterBufferCanvas.canvasContext.strokeStyle = "rgb(160, 255, 255)";
-    MeterBufferCanvas.canvasContext.moveTo(0,1);
-    MeterBufferCanvas.canvasContext.lineTo(720,1);
-    MeterBufferCanvas.canvasContext.stroke();
-
-    MeterBufferCanvas.canvasContext.beginPath();
-    MeterBufferCanvas.canvasContext.strokeStyle = "rgb(128, 255, 255)";
-    MeterBufferCanvas.canvasContext.moveTo(0,2);
-    MeterBufferCanvas.canvasContext.lineTo(720,2);
-    MeterBufferCanvas.canvasContext.stroke();
-
-    MeterBufferCanvas.canvasContext.beginPath();
-    MeterBufferCanvas.canvasContext.strokeStyle = "rgb(0, 192, 192)";
-    MeterBufferCanvas.canvasContext.moveTo(0, 18);
-    MeterBufferCanvas.canvasContext.lineTo(720, 18);
-    MeterBufferCanvas.canvasContext.stroke();
-
-    MeterBufferCanvas.canvasContext.beginPath();
-    MeterBufferCanvas.canvasContext.strokeStyle = "rgb(0, 160, 128)";
-    MeterBufferCanvas.canvasContext.moveTo(0, 19);
-    MeterBufferCanvas.canvasContext.lineTo(720, 19);
-    MeterBufferCanvas.canvasContext.stroke();
-
-    MeterBufferCanvas.canvasContext.beginPath();
-    MeterBufferCanvas.canvasContext.strokeStyle = "rgb(0, 64, 64)";
-    MeterBufferCanvas.canvasContext.moveTo(0, 20);
-    MeterBufferCanvas.canvasContext.lineTo(720, 20);
-    MeterBufferCanvas.canvasContext.stroke();
-
-
-
-    MeterBufferCanvas.canvasContext.stroke();
-
-		
-}
-
-
-        
-
 // Grid Canvas Tool
-////////////////////
 var GridCanvasTool = new Object();
 
 GridCanvasTool.canvas = document.createElement("canvas");
-        
 
 if (drawingEnabled) {
     GridCanvasTool.canvasContext = GridCanvasTool.canvas.getContext("2d");
@@ -136,21 +59,15 @@ if (drawingEnabled) {
 
 // Draws the standard black grid with green lines
 GridCanvasTool.drawStandardGrid = function () {
-             
     GridCanvasTool.canvasContext.beginPath();
-
 }
 
-
-         
-
 // Main Canvas
-//////////////////
 var MainBufferCanvas = new Object();
 
 MainBufferCanvas.canvas = document.createElement("canvas");
-MainBufferCanvas.canvas.setAttribute("width", 300);
-MainBufferCanvas.canvas.setAttribute("height", 150);
+MainBufferCanvas.canvas.setAttribute("width", 600);
+MainBufferCanvas.canvas.setAttribute("height", 300);
 
 //För att rutan överhuvudtaget ska kunna visas
 if(drawingEnabled){
@@ -161,7 +78,7 @@ MainBufferCanvas.ClickMe = function(){
     MainBufferCanvas.canvasContext.fillStyle = "rgb(255, 0, 0)";
     MainBufferCanvas.canvasContext.fillRect(0,0, 300, 150);
 
-    MainBufferCanvas.canvasContext.fillStyle = "rgb(0, 255, 255)";
+    MainBufferCanvas.canvasContext.fillStyle = "rgb(0, 0, 0)";
     MainBufferCanvas.canvasContext.textAlign = "center";
     MainBufferCanvas.canvasContext.font = "25px Arial, Arial, Geneva, sans-serif";
     MainBufferCanvas.canvasContext.fillText("Click Me 2 Play", 150, 80, 300);
@@ -171,7 +88,7 @@ MainBufferCanvas.dontClickYet = function(){
     MainBufferCanvas.canvasContext.fillStyle = "rgb(118, 142, 20)";
     MainBufferCanvas.canvasContext.fillRect(0,0, 300, 150);
 
-    MainBufferCanvas.canvasContext.fillStyle = "rgb(0, 255, 255)";
+    MainBufferCanvas.canvasContext.fillStyle = "rgb(0, 0, 0)";
     MainBufferCanvas.canvasContext.textAlign = "center";
     MainBufferCanvas.canvasContext.font = "25px Arial, Geneva, sans-serif";
     MainBufferCanvas.canvasContext.fillText("Don't Click Yet...", 150, 80, 300);
@@ -191,10 +108,10 @@ MainBufferCanvas.displayMilliseconds = function(milliseconds){
     MainBufferCanvas.canvasContext.fillStyle = "rgb(255, 0, 0)";
     MainBufferCanvas.canvasContext.fillRect(0,0, 300, 150);
 
-    MainBufferCanvas.canvasContext.fillStyle = "rgb(0, 255, 255)";
+    MainBufferCanvas.canvasContext.fillStyle = "rgb(0, 0, 0)";
     MainBufferCanvas.canvasContext.textAlign = "center";
     MainBufferCanvas.canvasContext.font = "25px Arial, Geneva, sans-serif";
-    MainBufferCanvas.canvasContext.fillText(milliseconds + " milliseconds", 150, 80, 300);
+    MainBufferCanvas.canvasContext.fillText(milliseconds + " ms", 150, 80, 300);
 }
 
 MainBufferCanvas.clickedTooSoon = function(){
@@ -220,7 +137,6 @@ MainBufferCanvas.dontClick = function(){
 
 	
 // Game State
-/////////////
 var gameState = { 
     clickable: "ClickMe",
     timerHasBegun: false,
@@ -306,10 +222,10 @@ function displayRecords(){
         iter++;
     }
 
-    disp.value = string;
-    disp2.innerHTML = Math.round(total/length) + ' milliseconds';
+    /*disp.value = string;
+    disp2.innerHTML = Math.round(total/length) + ' milliseconds';*/
     disp3.innerHTML = min(gameState.record) + ' milliseconds';
-    disp4.innerHTML = max(gameState.record) + ' milliseconds';
+    //disp4.innerHTML = max(gameState.record) + ' milliseconds';
 
     var time_array = gameState.record.sort(function(a,b){ return a-b; });
     if (length % 2 == 1)
@@ -319,7 +235,7 @@ function displayRecords(){
         var right = time_array[length/2];
         var median = Math.round((left + right)/2);
     }
-    disp5.innerHTML = median + ' milliseconds';
+    //disp5.innerHTML = median + ' milliseconds';
 }
 
 
