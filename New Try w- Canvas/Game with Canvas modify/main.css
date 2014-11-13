@@ -1,0 +1,37 @@
+﻿.default, .click_now, .warning {
+            font-size: 18pt;
+            text-align: center;
+}
+
+        .blue, .default, .gauge, .bar_row, #avg_row, #med_row {
+            color: #00ffff;
+            background-color: #0000ff;
+        }
+
+        .green, #best_row {
+            color: #ccff00;
+            background-color: #008000;
+        }
+
+        .green_yellow {
+            color: #ffff00;
+            background-color: #008000;
+        }
+
+        .warning, .red, #worst_row {
+            color: #ffff00;
+            background-color: #ff0000;
+        }
+
+        .white {
+            color: #000000;
+            background-color: #ffffff;
+        }
+
+        #lightRow td {
+            border: 1px solid black;
+        }
+
+        #touchDisplayTable input {
+            border: 1px solid rgb(128,128,128);
+        }
