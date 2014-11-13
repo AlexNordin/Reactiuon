@@ -1,8 +1,7 @@
 // JavaScript source code
-<!--
 
-	// Shim
-	////////
+// Shim
+////////
 	if(!Date.now)
 Date.now = function() { return (new Date()).getTime(); }
 
@@ -662,6 +661,3 @@ function drawCircleOnMainCanvas(xPosition, yPosition, radius){
 
     mainCanvasContext.restore();
 }
-
-
-//-->
