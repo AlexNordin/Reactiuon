@@ -13,9 +13,12 @@
         q = 0;
         ad = 0;
 
+<<<<<<< HEAD
         setInterval(function () {
             console.log(nyFunktion);
         }, 500)
+=======
+>>>>>>> parent of 17279d4... grej
         //ingen aning
         function rnd() {
             r1 = new Date();
@@ -32,7 +35,6 @@
                 da = 0;
                 setTimeout("spel()", 1000 + 1000 * rnd());
                 document.ful.text8.src = "redCirc.png";
-                document.ful.text2.value = ""
                 nyFunktion = 2;
             }
             //andra delen stoppar allt
@@ -40,12 +42,25 @@
                 if (da == 1) { return }
                 if (ad == 1) { return }
                 if (q == 1) { return }
+<<<<<<< HEAD
                 if (c != 0) { document.ful.text8.src = "greenCircCheck.png" }
                 da = 1;
+=======
+                if (c == 0) { fusk() }
+                if (c == 0) { return }
+                if (c != 0) { document.ful.text8.src = "greenCircCheck.png" }
+                da = 1
+>>>>>>> parent of 17279d4... grej
                 rak();
                 nyFunktion = 0;
             }
         }
+<<<<<<< HEAD
+=======
+        function stop() {
+            
+        }
+>>>>>>> parent of 17279d4... grej
 
         //vet inte vad denna gör 
         function rak() {
@@ -74,7 +89,6 @@
         function fusk() {
             nyFunktion = 0;
             document.ful.text2.value = "Too early! Start again."
-            document.ful.text8.src = "redCircFusk.png";
             ad = 1
             stid = 0;
             rak();
@@ -87,7 +101,11 @@
                     <input class="displayArea" size="30" name="text1" value="Reaction time:"><br>
                     <input class="displayArea" size=" 30" name="text2" /><br />
                     <img src="redCircClick.png" name="text8" height="400" width="400" onclick="start()" /><br>
+<<<<<<< HEAD
 
+=======
+                        <input type="button" value="Start/stop" onclick="start()">
+>>>>>>> parent of 17279d4... grej
                 </form>
             </center>
 
